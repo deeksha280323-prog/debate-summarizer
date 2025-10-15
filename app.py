@@ -37,11 +37,13 @@ if st.button("🔍 Summarize Debate"):
             else:
                 sentiment = "Neutral"
 
-# Consensus logic
-consensus = "Strong Agreement" if sentiment_score > 0.4 else "Mixed Opinions" if sentiment_score > -0.2 else "Conflict Detected"
-st.subheader("🗳️ Consensus Analysis:")
-st.info(consensus)
+            # Display results
+            st.subheader("📄 AI Summary:")
+            st.success(summary)
 
+            st.subheader("💬 Sentiment Overview:")
+            st.metric(label="Sentiment Type", value=sentiment)
+            st.metric(label="Sentiment Score", value=sentiment_score)
 
             # Consensus logic (very simple)
             consensus = "Strong Agreement" if sentiment_score > 0.4 else "Mixed Opinions" if sentiment_score > -0.2 else "Conflict Detected"
@@ -60,5 +62,4 @@ st.info(consensus)
 
 st.markdown("---")
 st.caption("Made with ❤️ using Streamlit, Hugging Face Transformers, and TextBlob")
-do the adjustments
 
